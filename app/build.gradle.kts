@@ -90,6 +90,8 @@ dependencies {
     kapt(libs.hilt.compiler)
     implementation(libs.hilt.ext.compiler)
 
+    implementation(libs.google.gson)
+
     androidTestImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.core)
     androidTestImplementation(libs.androidx.test.ext.junit)
