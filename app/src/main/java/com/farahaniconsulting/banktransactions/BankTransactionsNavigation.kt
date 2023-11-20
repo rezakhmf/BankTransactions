@@ -10,7 +10,7 @@ import androidx.navigation.compose.composable
 import com.farahaniconsulting.banktransactions.ui.transactions.TransactionsScreen
 
 @Composable
-fun BankTransactionsApp (
+fun BankTransactionsNavigation (
     appState:  TransactionsAppState = rememberTransactionsAppState()
 ) {
     if (appState.isOnline) {

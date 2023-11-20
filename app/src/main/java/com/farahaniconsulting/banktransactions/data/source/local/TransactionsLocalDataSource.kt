@@ -4,7 +4,11 @@ import com.farahaniconsulting.banktransactions.data.model.dto.transactions.Trans
 import com.farahaniconsulting.banktransactions.data.source.transaction.TransactionDataSource
 
 class TransactionsLocalDataSource() : TransactionDataSource {
-    override suspend fun getTransactions(bsb: String, accountNumber: String): TransactionDto {
+    override suspend fun getTransactions(
+        transactionDto: TransactionDto,
+        bsb: String,
+        accountNumber: String
+    ): TransactionDto {
         TODO("Not yet implemented")
     }
 }

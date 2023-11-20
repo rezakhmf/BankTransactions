@@ -4,5 +4,9 @@ import com.farahaniconsulting.banktransactions.data.model.dto.transactions.Trans
 
 interface TransactionDataSource {
 
-    suspend fun getTransactions(bsb: String, accountNumber: String) : TransactionDto
+    suspend fun getTransactions(
+        transactionDto: TransactionDto,
+        bsb: String,
+        accountNumber: String
+    ): TransactionDto
 }
