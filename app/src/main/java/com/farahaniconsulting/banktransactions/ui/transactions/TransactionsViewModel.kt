@@ -1,6 +1,5 @@
 package com.farahaniconsulting.banktransactions.ui.transactions
 
-import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.farahaniconsulting.banktransactions.domain.model.Transactions
@@ -18,8 +17,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class TransactionsViewModel @Inject constructor(
-    private val transactionUseCase: TransactionUseCase,
-    transactionsJson: String?
+    private val transactionUseCase: TransactionUseCase
 ) : ViewModel() {
 
     private var _transactionsUiSate: MutableStateFlow<UIState<Transactions>> =
@@ -33,10 +31,8 @@ class TransactionsViewModel @Inject constructor(
         )
 
     init {
-        transactionsJson?.let {
-            viewModelScope.launch {
-                fetchTransactions()
-            }
+        viewModelScope.launch {
+            fetchTransactions()
         }
     }
 

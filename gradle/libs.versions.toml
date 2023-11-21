@@ -17,8 +17,9 @@ androidx-lifecycle-compose = "2.6.2"
 androidx-lifecycle-runtime-compose = "2.6.2"
 androidx-navigation = "2.7.5"
 
-hilt = "2.44"
+hilt = "2.44.2"
 hiltExt = "1.1.0"
+hiltNavigator = "1.1.0"
 
 gson= "2.8.9"
 
@@ -65,6 +66,7 @@ hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hilt"
 hilt-android-testing = { module = "com.google.dagger:hilt-android-testing", version.ref = "hilt" }
 hilt-compiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "hilt" }
 hilt-ext-compiler = { module = "androidx.hilt:hilt-compiler", version.ref = "hiltExt" }
+hilt-navigator = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "hiltNavigator" }
 
 google-gson = { module = "com.google.code.gson:gson", version.ref = "gson"}
 
