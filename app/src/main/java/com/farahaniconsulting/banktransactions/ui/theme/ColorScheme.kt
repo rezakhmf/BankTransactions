@@ -4,16 +4,18 @@ import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.ui.graphics.Color
 
-val Yellow800 = Color(0x4FFFEB3B)
+val yellow800 = Color(0x4FFFEB3B)
 var Red300 = Color(0xFF009688)
 
 val grey = Color(0xFFBBB9B1)
+val balck20 = Color(0xFF231F20)
+val gray_descr = Color(0xFF706D6E)
 var orange = Color(0xFFFFC107)
 
 val LightColorScheme = lightColorScheme(
-    primary = Yellow800,
+    primary = yellow800,
     onPrimary = Color.White,
-    inversePrimary = Yellow800,
+    inversePrimary = yellow800,
     secondary = Color.Black,
     onSecondary = Color.Black,
     error = Red300,
@@ -23,7 +25,7 @@ val LightColorScheme = lightColorScheme(
 val DarkColorScheme = darkColorScheme(
     primary = grey,
     onPrimary = orange,
-    inversePrimary = Yellow800,
+    inversePrimary = yellow800,
     secondary = Color.Black,
     onSecondary = Color.Black,
     error = Red300,

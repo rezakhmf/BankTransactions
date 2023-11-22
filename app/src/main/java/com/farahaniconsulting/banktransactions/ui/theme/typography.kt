@@ -15,7 +15,7 @@ private val Montserrat = FontFamily(
     Font(R.font.montserrat_semibold, FontWeight.SemiBold)
 )
 
-var Typography = Typography(
+var typography = Typography(
     headlineLarge = TextStyle(
         fontFamily = Montserrat,
         fontSize = 60.sp,
