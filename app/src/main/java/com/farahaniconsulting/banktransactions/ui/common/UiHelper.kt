@@ -10,7 +10,10 @@ import androidx.compose.material.icons.filled.Traffic
 import androidx.compose.material.icons.filled.Visibility
 import androidx.compose.material.icons.filled.Work
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.SideEffect
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
+import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import java.util.Locale
 
 @Composable
@@ -34,5 +37,13 @@ fun getPendingText(isPending: Boolean): String? {
         "Pending"
     } else {
         null
+    }
+}
+
+@Composable
+fun SetStatusBarColor(color: Color) {
+    val systemUiController = rememberSystemUiController()
+    SideEffect {
+        systemUiController.setSystemBarsColor(color)
     }
 }

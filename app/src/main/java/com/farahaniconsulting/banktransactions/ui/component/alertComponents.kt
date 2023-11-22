@@ -29,7 +29,7 @@ fun ShowLoading(
     Box(modifier = modifier) {
         CircularProgressIndicator(
             modifier = Modifier
-                .size(26.dp)
+                .size(60.dp)
                 .align(Alignment.Center),
             color = AccentColor
         )
