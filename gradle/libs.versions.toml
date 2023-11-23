@@ -7,6 +7,7 @@ compileSdk = "34"
 minSdk = "24"
 targetSdk = "34"
 accompanist = "0.32.0"
+swipe-refresh = "0.27.0"
 compose-compiler = "1.4.3"
 androidx-compose-bom = "2023.10.01"
 androidxHiltNavigationCompose = "1.1.0"
@@ -33,6 +34,7 @@ androidx-test-espresso = "3.5.1"
 androidx-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "ktx"}
 
 accompanist-systemuicontroller = { module = "com.google.accompanist:accompanist-systemuicontroller", version.ref = "accompanist" }
+accompanist-swiperefresh = { module = "com.google.accompanist:accompanist-swiperefresh", version.ref = "swipe-refresh" }
 
 androidx-compose-bom = { module = "androidx.compose:compose-bom", version.ref = "androidx-compose-bom" }
 androidx-compose-animation = { module = "androidx.compose.animation:animation" }

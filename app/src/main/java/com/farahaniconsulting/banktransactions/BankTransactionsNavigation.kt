@@ -10,19 +10,20 @@ import androidx.navigation.compose.composable
 import com.farahaniconsulting.banktransactions.ui.transactions.TransactionsScreen
 
 @Composable
-fun BankTransactionsNavigation (
-    appState:  TransactionsAppState = rememberTransactionsAppState()
+fun BankTransactionsNavigation(
+    appState: TransactionsAppState = rememberTransactionsAppState()
 ) {
     if (appState.isOnline) {
         NavHost(
             navController = appState.navController,
-            startDestination = Screen.Home.route) {
+            startDestination = Screen.Home.route
+        ) {
             composable(Screen.Home.route) { navBackStackEntry ->
                 TransactionsScreen()
             }
         }
     } else {
-        OfflineDialog{
+        OfflineDialog {
             appState.refreshOnline()
         }
     }
@@ -31,7 +32,7 @@ fun BankTransactionsNavigation (
 @Composable
 fun OfflineDialog(
     onRetry: () -> Unit
-){
+) {
     AlertDialog(
         onDismissRequest = {},
         title = { Text(text = stringResource(R.string.connection_error_title)) },

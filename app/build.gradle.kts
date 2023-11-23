@@ -69,6 +69,7 @@ dependencies {
     implementation(libs.androidx.core.ktx)
 
     implementation(libs.accompanist.systemuicontroller)
+    implementation(libs.accompanist.swiperefresh)
 
     implementation(libs.androidx.lifecycle.runtime)
     implementation(libs.androidx.lifecycle.viewmodel.ktx)

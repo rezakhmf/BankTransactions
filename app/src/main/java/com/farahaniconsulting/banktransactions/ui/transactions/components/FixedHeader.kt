@@ -2,11 +2,9 @@ package com.farahaniconsulting.banktransactions.ui.transactions.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Divider
@@ -31,30 +29,31 @@ fun FixedHeader(
     val account = transactions.account
 
     val headerRef = rememberUpdatedState(onHeaderHeightMeasured)
-    Spacer(
-        modifier = Modifier
-            .padding(32.dp)
-            .fillMaxWidth()
-    )
     Column(
         modifier = Modifier
             .fillMaxWidth()
             .background(MaterialTheme.colorScheme.background)
-            .padding(top = 16.dp)
             .onGloballyPositioned { coordinates ->
                 headerRef.value(coordinates.size.height)
             }
     ) {
-            Divider(
-                color = MaterialTheme.colorScheme.secondary,
-                thickness = 2.dp,
-                modifier = Modifier
-                    .fillMaxWidth()
-            )
+        Divider(
+            color = MaterialTheme.colorScheme.outline,
+            thickness = 4.dp,
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(top = 32.dp)
+        )
+
+        Spacer(
+            modifier = Modifier
+                .padding(top = 32.dp)
+        )
+
         Column(
             modifier = Modifier
-                .padding(8.dp)
-        ){
+            //.padding(8.dp)
+        ) {
             Column {
                 Text("Available")
                 Text(account.available, style = MaterialTheme.typography.headlineMedium)

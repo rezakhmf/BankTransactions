@@ -7,9 +7,9 @@ import android.util.Log
 import java.util.Locale
 
 sealed class ResultData<out T> {
-    object DoNothing: ResultData<Nothing>()
-    object Loading: ResultData<Nothing>()
-    data class Success<T>(val data: T? = null): ResultData<T>()
+    object DoNothing : ResultData<Nothing>()
+    object Loading : ResultData<Nothing>()
+    data class Success<T>(val data: T? = null) : ResultData<T>()
 }
 
 fun getDaysDifference(dateString: String, locale: Locale = Locale.getDefault()): String? {
@@ -37,7 +37,7 @@ fun getDaysDifference(dateString: String, locale: Locale = Locale.getDefault()):
         }
     } catch (e: Exception) {
         Log.e(e.toString(), e.printStackTrace().toString())
-       return ""
+        return ""
     }
 }
 

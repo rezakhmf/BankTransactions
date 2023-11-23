@@ -18,14 +18,16 @@ import androidx.navigation.compose.rememberNavController
 sealed class Screen(val route: String) {
     object Home : Screen(route = "home")
 }
+
 @Composable
-fun  rememberTransactionsAppState(
+fun rememberTransactionsAppState(
     navController: NavHostController = rememberNavController(),
     context: Context = LocalContext.current
 ) = remember(context) {
     TransactionsAppState(
         context = context,
-        navController = navController)
+        navController = navController
+    )
 }
 
 class TransactionsAppState(
@@ -47,7 +49,7 @@ class TransactionsAppState(
     private fun checkIfOnline(): Boolean {
         val cm = ContextCompat.getSystemService(context, ConnectivityManager::class.java)
 
-        return if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             val capabilities = cm?.getNetworkCapabilities(cm.activeNetwork) ?: return false
             capabilities.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET) &&
                     capabilities.hasCapability(NetworkCapabilities.NET_CAPABILITY_VALIDATED)
