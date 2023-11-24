@@ -9,6 +9,7 @@ val Black = Color(0xFF0E0D0D)
 val White = Color(0xFFF3EDEF)
 val Grey = Color(0xFFF7F7F7)
 val Outline = Color(0xFFE8E8E8)
+val OnTertiary = Color(0xFF888892)
 val Red300 = Color(0xFFB42525)
 
 val LightColorScheme = lightColorScheme(
@@ -17,6 +18,7 @@ val LightColorScheme = lightColorScheme(
     secondary = Grey,
     onSecondary = White,
     outline = Outline,
+    onTertiary = OnTertiary,
     error = Red300,
     onError = Color.White
 )
@@ -27,6 +29,7 @@ val DarkColorScheme = darkColorScheme(
     secondary = Grey,
     onSecondary = White,
     outline = Outline,
+    onTertiary = White,
     error = Red300,
     onError = Color.Black
 )

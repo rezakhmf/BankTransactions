@@ -42,3 +42,13 @@ fun getDaysDifference(dateString: String, locale: Locale = Locale.getDefault()):
 }
 
 
+fun formatMoneyAmount(amount: String): String {
+    val amountAsDouble = amount.toDoubleOrNull() ?: 0.0
+    return "$${String.format("%.2f", amountAsDouble)}"
+}
+
+fun splitStringIntoGroups(input: String, groupSize: Int = 4): String {
+    val regex = "(.{$groupSize})".toRegex()
+    return regex.replace(input, "$1 ")
+}
+
