@@ -48,7 +48,6 @@ fun formatMoneyAmount(amount: String): String {
 }
 
 fun splitStringIntoGroups(input: String, groupSize: Int = 4): String {
-    val regex = "(.{$groupSize})".toRegex()
-    return regex.replace(input, "$1 ")
+    return input.chunked(groupSize).joinToString(" ")
 }
 
