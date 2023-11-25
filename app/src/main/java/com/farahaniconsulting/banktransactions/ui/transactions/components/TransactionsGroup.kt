@@ -3,6 +3,7 @@ package com.farahaniconsulting.banktransactions.ui.transactions.components
 import android.os.Build
 import androidx.annotation.RequiresApi
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -29,16 +30,18 @@ fun TransactionsGroup(date: String, transactions: List<Transaction>) {
             .padding(16.dp)
     ) {
         // Date
-        Row {
+        Row(
+            horizontalArrangement = Arrangement.Center
+        ) {
             Text(
                 text = convertDateFormat(date),
-                style = MaterialTheme.typography.displayMedium
+                style = MaterialTheme.typography.displaySmall
             )
             Spacer(modifier = Modifier.width(16.dp))
             Text(
                 text = getDaysDifference(date).toString(),
                 modifier = Modifier
-                    .padding(top = 8.dp),
+                    .padding(top = 2.dp),
                 style = MaterialTheme.typography.bodyMedium
             )
         }
