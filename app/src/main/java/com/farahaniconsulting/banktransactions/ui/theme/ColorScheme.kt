@@ -9,7 +9,7 @@ val Black = Color(0xFF0E0D0D)
 val White = Color(0xFFF3EDEF)
 val Grey = Color(0xFFF7F7F7)
 val Outline = Color(0xFFE8E8E8)
-val OnTertiary = Color(0xFF888892)
+val OnTertiary = Color(0xFF706D6E)
 val Red300 = Color(0xFFB42525)
 
 val LightColorScheme = lightColorScheme(

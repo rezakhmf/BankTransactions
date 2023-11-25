@@ -97,7 +97,8 @@ fun FixedHeader(
             Spacer(modifier = Modifier.height(32.dp))
         }
 
-        Divider(color = Color.Gray, thickness = 1.dp)
+        Divider(color =  MaterialTheme.colorScheme.onTertiary,
+            thickness = 1.dp)
         Spacer(modifier = Modifier.height(16.dp))
         Row(
             modifier = Modifier
@@ -126,7 +127,8 @@ fun FixedHeader(
             )
         }
         Spacer(modifier = Modifier.height(16.dp))
-        Divider(color = Color.Gray, thickness = 1.dp)
+        Divider(color =  MaterialTheme.colorScheme.onTertiary,
+            thickness = 1.dp)
     }
 }
 

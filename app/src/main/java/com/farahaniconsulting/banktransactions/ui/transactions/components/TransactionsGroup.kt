@@ -25,12 +25,10 @@ import com.farahaniconsulting.banktransactions.util.getDaysDifference
 
 @Composable
 fun TransactionsGroup(date: String, transactions: List<Transaction>) {
-    Column(
-        modifier = Modifier
-            .padding(16.dp)
-    ) {
-        // Date
+    Column {
         Row(
+            modifier = Modifier
+                .padding(16.dp),
             horizontalArrangement = Arrangement.Center
         ) {
             Text(
@@ -45,13 +43,16 @@ fun TransactionsGroup(date: String, transactions: List<Transaction>) {
                 style = MaterialTheme.typography.bodyMedium
             )
         }
-        Spacer(modifier = Modifier.height(24.dp))
-
-                transactions.forEach { transaction ->
-                    Spacer(modifier = Modifier.height(16.dp))
-                    TransactionItem(transaction = transaction)
-                    Spacer(modifier = Modifier.height(16.dp))
-                    Divider(color = Color.Gray, thickness = 1.dp)
-                }
+        transactions.forEach { transaction ->
+            Spacer(modifier = Modifier.height(16.dp))
+            TransactionItem(transaction = transaction)
+            Spacer(modifier = Modifier.height(16.dp))
+            Divider(
+                color = MaterialTheme.colorScheme.onTertiary,
+                thickness = 1.dp,
+                modifier = Modifier
+                    .padding(start = 16.dp)
+            )
+        }
     }
 }

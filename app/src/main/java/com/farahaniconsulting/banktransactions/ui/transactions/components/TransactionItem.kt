@@ -17,44 +17,36 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.farahaniconsulting.banktransactions.domain.model.Transaction
 import com.farahaniconsulting.banktransactions.ui.common.getCategoryIcon
-import com.farahaniconsulting.banktransactions.ui.common.getPendingText
+import com.farahaniconsulting.banktransactions.ui.common.makeTransactionInfo
 import com.farahaniconsulting.banktransactions.util.formatMoneyAmount
-import com.farahaniconsulting.banktransactions.util.removeHtmlTags
-import java.util.Locale
 
 @Composable
 fun TransactionItem(transaction: Transaction) {
     Row(
+        modifier = Modifier
+            .padding(start = 16.dp, end = 16.dp),
            horizontalArrangement = Arrangement.SpaceEvenly,
-          verticalAlignment = Alignment.CenterVertically
+          verticalAlignment = Alignment.CenterVertically,
     ) {
         Icon(
             imageVector = getCategoryIcon(transaction.category),
             contentDescription = transaction.category,
-            tint =  MaterialTheme.colorScheme.secondary,
+            tint =  MaterialTheme.colorScheme.primary,
             modifier = Modifier
-                .size(32.dp)
+                .size(36.dp)
                 .padding(top = 4.dp)
                 .background(MaterialTheme.colorScheme.onTertiary, CircleShape)
         )
-        Spacer(modifier = Modifier.width(8.dp))
-        getPendingText(transaction.isPending)?.let { pendingText ->
+        Spacer(modifier = Modifier.width(16.dp))
+        Row(modifier = Modifier.weight(1f)) {
             Text(
-                text = pendingText.uppercase(Locale.ROOT),
-                style = MaterialTheme.typography.displayMedium
-                    .copy(color = MaterialTheme.colorScheme.onTertiary),
+                text = makeTransactionInfo(transaction.isPending,
+                        transaction.description),
+                modifier = Modifier
+                    .padding(top = 4.dp)
+                    .weight(1f),
             )
         }
-        Spacer(modifier = Modifier.width(8.dp))
-        Text(
-            text = removeHtmlTags(transaction.description),
-            modifier = Modifier
-                .padding(top = 4.dp)
-                .weight(1f),
-            style = MaterialTheme.typography.titleMedium
-                .copy(color = MaterialTheme.colorScheme.onTertiary
-                )
-        )
         Text(
             formatMoneyAmount(transaction.amount),
             modifier = Modifier

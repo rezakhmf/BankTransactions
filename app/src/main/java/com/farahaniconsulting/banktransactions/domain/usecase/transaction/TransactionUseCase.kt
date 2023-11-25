@@ -8,7 +8,6 @@ import com.farahaniconsulting.banktransactions.util.ResultData
 import javax.inject.Inject
 
 class TransactionUseCase @Inject constructor(
-    private val transactionRepository: TransactionRepository,
     private val transactionMapperRepository: TransactionMapperRepository
 ) {
     suspend fun getTransactions(): ResultData<Transactions?> {
@@ -17,9 +16,6 @@ class TransactionUseCase @Inject constructor(
                 transactionMapperRepository.convertJsonToClass(json, AccountTransactionsDto::class.java)?.toTransaction()
             )
         }
-
-        //transactionMapperRepository.getTransactions().account.accountName
-        //transactionMapperRepository.getTransactions().account.accountNumber
         return ResultData.DoNothing
     }
 }
