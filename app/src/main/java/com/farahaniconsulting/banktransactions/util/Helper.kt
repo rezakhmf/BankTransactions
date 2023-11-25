@@ -1,10 +1,10 @@
 package com.farahaniconsulting.banktransactions.util
 
 import android.icu.text.SimpleDateFormat
-import android.icu.util.Calendar
-import android.icu.util.TimeZone
 import android.util.Log
+import java.util.Calendar
 import java.util.Locale
+import java.util.TimeZone
 
 sealed class ResultData<out T> {
     object DoNothing : ResultData<Nothing>()
@@ -49,5 +49,23 @@ fun formatMoneyAmount(amount: String): String {
 
 fun splitStringIntoGroups(input: String, groupSize: Int = 4): String {
     return input.chunked(groupSize).joinToString(" ")
+}
+
+
+fun convertDateFormat(inputDate: String): String {
+    return try {
+        val originalDate = SimpleDateFormat("yyyy-MM-dd", Locale.US).parse(inputDate)
+        val calendar = Calendar.getInstance()
+        calendar.time = originalDate
+
+        val dayOfWeek = calendar.getDisplayName(Calendar.DAY_OF_WEEK, Calendar.SHORT, Locale.ENGLISH)
+        val dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH)
+        val month = calendar.getDisplayName(Calendar.MONTH, Calendar.SHORT, Locale.ENGLISH)
+
+        "$dayOfWeek $dayOfMonth $month"
+    } catch (e: Exception) {
+        Log.e(e.message, e.printStackTrace().toString())
+        ""
+    }
 }
 

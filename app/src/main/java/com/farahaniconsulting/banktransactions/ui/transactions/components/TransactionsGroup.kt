@@ -1,9 +1,16 @@
 package com.farahaniconsulting.banktransactions.ui.transactions.components
 
+import android.os.Build
+import androidx.annotation.RequiresApi
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Divider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -12,36 +19,36 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.farahaniconsulting.banktransactions.domain.model.Transaction
+import com.farahaniconsulting.banktransactions.util.convertDateFormat
 import com.farahaniconsulting.banktransactions.util.getDaysDifference
 
 @Composable
 fun TransactionsGroup(date: String, transactions: List<Transaction>) {
-    Row(
+    Column(
         modifier = Modifier
-            .fillMaxWidth()
             .padding(16.dp)
     ) {
         // Date
         Row {
             Text(
-                text = date,
-                style = MaterialTheme.typography.bodyMedium,
-                color = Color.Gray
+                text = convertDateFormat(date),
+                style = MaterialTheme.typography.displayMedium
             )
-
+            Spacer(modifier = Modifier.width(16.dp))
             Text(
                 text = getDaysDifference(date).toString(),
-                style = MaterialTheme.typography.bodyMedium,
-                color = Color.Gray
+                modifier = Modifier
+                    .padding(top = 8.dp),
+                style = MaterialTheme.typography.bodyMedium
             )
         }
+        Spacer(modifier = Modifier.height(24.dp))
 
-        Column {
-            transactions.forEach { transaction ->
-                TransactionItem(transaction = transaction)
-                // Divider here
-                Divider(color = Color.Gray, thickness = 1.dp)
-            }
-        }
+                transactions.forEach { transaction ->
+                    Spacer(modifier = Modifier.height(16.dp))
+                    TransactionItem(transaction = transaction)
+                    Spacer(modifier = Modifier.height(16.dp))
+                    Divider(color = Color.Gray, thickness = 1.dp)
+                }
     }
 }

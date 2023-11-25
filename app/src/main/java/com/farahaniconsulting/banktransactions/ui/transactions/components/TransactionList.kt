@@ -31,7 +31,6 @@ fun TransactionList(
     ) {
         LazyColumn(
             modifier = Modifier
-                .fillMaxSize()
                 .padding(top = with(LocalDensity.current) { headerHeight.toDp() })
         ) {
             groupedTransactions.forEach { (date, transactionsGroupedByDate) ->
