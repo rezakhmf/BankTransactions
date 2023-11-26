@@ -62,6 +62,7 @@ configurations {
 }
 
 dependencies {
+    testImplementation("org.testng:testng:6.9.6")
     val composeBom = platform(libs.androidx.compose.bom)
     implementation(composeBom)
     androidTestImplementation(composeBom)
@@ -105,4 +106,6 @@ dependencies {
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)
     androidTestImplementation(libs.androidx.compose.ui.test)
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)
+
+    testImplementation(libs.test.mockk)
 }

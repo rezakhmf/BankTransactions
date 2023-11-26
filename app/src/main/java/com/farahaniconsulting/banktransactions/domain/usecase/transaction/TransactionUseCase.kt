@@ -12,9 +12,9 @@ class TransactionUseCase @Inject constructor(
 ) {
     suspend fun getTransactions(): ResultData<Transactions?> {
         transactionMapperRepository.readFile("exercise.json")?.let { json ->
-            return ResultData.Success(
-                transactionMapperRepository.convertJsonToClass(json, AccountTransactionsDto::class.java)?.toTransaction()
-            )
+            transactionMapperRepository.convertJsonToClass(json, AccountTransactionsDto::class.java)?.let { accountTransactionsDto ->
+                return ResultData.Success(accountTransactionsDto.toTransaction())
+            }
         }
         return ResultData.DoNothing
     }

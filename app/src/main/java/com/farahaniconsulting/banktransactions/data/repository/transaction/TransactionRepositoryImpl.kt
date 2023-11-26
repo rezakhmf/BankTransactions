@@ -2,7 +2,9 @@ package com.farahaniconsulting.banktransactions.data.repository.transaction
 
 import android.content.Context
 import android.util.Log
+import com.farahaniconsulting.banktransactions.dispatcher.DispatcherProvider
 import com.google.gson.Gson
+import kotlinx.coroutines.withContext
 import java.io.IOException
 
 interface TransactionMapperRepository {
@@ -10,11 +12,16 @@ interface TransactionMapperRepository {
     suspend fun <T> convertJsonToClass(json: String, clazz: Class<T>): T?
 }
 
-class TransactionMapperRepositoryImpl(private val context: Context) : TransactionMapperRepository {
+class TransactionMapperRepositoryImpl(
+    private val context: Context,
+    private val dispatcher: DispatcherProvider,
+) : TransactionMapperRepository {
     override suspend fun readFile(fileName: String): String ?{
         return try {
-            context.assets.open(fileName).bufferedReader().use {
-                it.readText()
+            withContext(dispatcher.io) {
+                context.assets.open(fileName).bufferedReader().use {
+                    it.readText()
+                }
             }
         } catch (e: IOException) {
             Log.e(e.message ,e.printStackTrace().toString())
