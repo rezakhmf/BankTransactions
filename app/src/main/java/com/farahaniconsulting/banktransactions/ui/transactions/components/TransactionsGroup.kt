@@ -20,6 +20,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.farahaniconsulting.banktransactions.domain.model.Transaction
+import com.farahaniconsulting.banktransactions.ui.common.Dimes.OnePoint
+import com.farahaniconsulting.banktransactions.ui.common.Dimes.TwoPoint
+import com.farahaniconsulting.banktransactions.ui.common.Dimes.XMedium
 import com.farahaniconsulting.banktransactions.util.convertDateFormat
 import com.farahaniconsulting.banktransactions.util.getDaysDifference
 
@@ -28,30 +31,30 @@ fun TransactionsGroup(date: String, transactions: List<Transaction>) {
     Column {
         Row(
             modifier = Modifier
-                .padding(16.dp),
+                .padding(XMedium),
             horizontalArrangement = Arrangement.Center
         ) {
             Text(
                 text = convertDateFormat(date),
                 style = MaterialTheme.typography.displaySmall
             )
-            Spacer(modifier = Modifier.width(16.dp))
+            Spacer(modifier = Modifier.width(XMedium))
             Text(
                 text = getDaysDifference(date).toString(),
                 modifier = Modifier
-                    .padding(top = 2.dp),
+                    .padding(top = TwoPoint),
                 style = MaterialTheme.typography.bodyMedium
             )
         }
         transactions.forEach { transaction ->
-            Spacer(modifier = Modifier.height(16.dp))
+            Spacer(modifier = Modifier.height(XMedium))
             TransactionItem(transaction = transaction)
-            Spacer(modifier = Modifier.height(16.dp))
+            Spacer(modifier = Modifier.height(XMedium))
             Divider(
                 color = MaterialTheme.colorScheme.onTertiary,
-                thickness = 1.dp,
+                thickness = OnePoint,
                 modifier = Modifier
-                    .padding(start = 16.dp)
+                    .padding(start = XMedium)
             )
         }
     }

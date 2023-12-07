@@ -16,6 +16,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.farahaniconsulting.banktransactions.domain.model.Transaction
+import com.farahaniconsulting.banktransactions.ui.common.Dimes.Small
+import com.farahaniconsulting.banktransactions.ui.common.Dimes.XMedium
+import com.farahaniconsulting.banktransactions.ui.common.Dimes.XSmall
+import com.farahaniconsulting.banktransactions.ui.common.Dimes.XxMedium
 import com.farahaniconsulting.banktransactions.ui.common.getCategoryIcon
 import com.farahaniconsulting.banktransactions.ui.common.makeTransactionInfo
 import com.farahaniconsulting.banktransactions.util.formatMoneyAmount
@@ -24,7 +28,7 @@ import com.farahaniconsulting.banktransactions.util.formatMoneyAmount
 fun TransactionItem(transaction: Transaction) {
     Row(
         modifier = Modifier
-            .padding(start = 16.dp, end = 16.dp),
+            .padding(start = XMedium, end = XMedium),
            horizontalArrangement = Arrangement.SpaceEvenly,
           verticalAlignment = Alignment.CenterVertically,
     ) {
@@ -33,24 +37,24 @@ fun TransactionItem(transaction: Transaction) {
             contentDescription = transaction.category,
             tint =  MaterialTheme.colorScheme.primary,
             modifier = Modifier
-                .size(36.dp)
-                .padding(top = 4.dp)
+                .size(XxMedium)
+                .padding(top = XSmall)
                 .background(MaterialTheme.colorScheme.onTertiary, CircleShape)
         )
-        Spacer(modifier = Modifier.width(16.dp))
+        Spacer(modifier = Modifier.width(XMedium))
         Row(modifier = Modifier.weight(1f)) {
             Text(
                 text = makeTransactionInfo(transaction.isPending,
                         transaction.description),
                 modifier = Modifier
-                    .padding(top = 4.dp)
+                    .padding(top = XSmall)
                     .weight(1f),
             )
         }
         Text(
             formatMoneyAmount(transaction.amount),
             modifier = Modifier
-                .padding(top = 4.dp, start = 8.dp),
+                .padding(top = XSmall, start = Small),
             style =  MaterialTheme.typography.titleMedium,
         )
     }

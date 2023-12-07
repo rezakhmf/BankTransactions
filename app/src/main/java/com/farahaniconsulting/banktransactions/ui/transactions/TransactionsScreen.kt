@@ -20,6 +20,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.farahaniconsulting.banktransactions.domain.model.Transactions
+import com.farahaniconsulting.banktransactions.ui.common.Dimes.Small
 import com.farahaniconsulting.banktransactions.ui.common.UIState
 import com.farahaniconsulting.banktransactions.ui.component.ShowError
 import com.farahaniconsulting.banktransactions.ui.component.ShowLoading
@@ -87,7 +88,7 @@ fun TransactionsContent(
                             Text(
                                 text = it.account.accountName,
                                 modifier = Modifier
-                                    .padding(bottom = 8.dp),
+                                    .padding(bottom = Small),
                             )
                         }, colors = topAppBarColors
                     )

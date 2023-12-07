@@ -18,6 +18,9 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.farahaniconsulting.banktransactions.R
+import com.farahaniconsulting.banktransactions.ui.common.Dimes.XMedium
+import com.farahaniconsulting.banktransactions.ui.common.Dimes.XxxMedium
+import com.farahaniconsulting.banktransactions.ui.common.Dimes.XxxxMedium
 import com.farahaniconsulting.banktransactions.ui.theme.AccentColor
 import com.farahaniconsulting.banktransactions.ui.theme.RedError
 import com.farahaniconsulting.banktransactions.ui.theme.TextWhite
@@ -29,7 +32,7 @@ fun ShowLoading(
     Box(modifier = modifier) {
         CircularProgressIndicator(
             modifier = Modifier
-                .size(60.dp)
+                .size(XxxxMedium)
                 .align(Alignment.Center),
             color = AccentColor
         )
@@ -53,8 +56,8 @@ fun ShowError(
                 painter = painterResource(id = R.drawable.ic_error),
                 contentDescription = stringResource(id = R.string.error_icon_content),
                 modifier = Modifier
-                    .size(46.dp)
-                    .padding(start = 16.dp),
+                    .size(XxxMedium)
+                    .padding(start = XMedium),
                 tint = RedError
             )
             Text(

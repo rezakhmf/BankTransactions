@@ -13,6 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.dp
 import com.farahaniconsulting.banktransactions.domain.model.Transactions
+import com.farahaniconsulting.banktransactions.ui.common.Dimes.Medium
 
 @Composable
 fun TransactionList(
@@ -27,7 +28,7 @@ fun TransactionList(
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .padding(vertical = 32.dp)
+            .padding(vertical = Medium)
     ) {
         LazyColumn(
             modifier = Modifier

@@ -1,7 +1,6 @@
 package com.farahaniconsulting.banktransactions.ui.transactions.components
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -15,10 +14,13 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.onGloballyPositioned
-import androidx.compose.ui.unit.dp
 import com.farahaniconsulting.banktransactions.domain.model.Transactions
+import com.farahaniconsulting.banktransactions.ui.common.Dimes.Medium
+import com.farahaniconsulting.banktransactions.ui.common.Dimes.OnePoint
+import com.farahaniconsulting.banktransactions.ui.common.Dimes.Small
+import com.farahaniconsulting.banktransactions.ui.common.Dimes.XMedium
+import com.farahaniconsulting.banktransactions.ui.common.Dimes.XSmall
 import com.farahaniconsulting.banktransactions.util.formatMoneyAmount
 import com.farahaniconsulting.banktransactions.util.splitStringIntoGroups
 
@@ -43,20 +45,20 @@ fun FixedHeader(
     ) {
         Divider(
             color = MaterialTheme.colorScheme.outline,
-            thickness = 4.dp,
+            thickness = XSmall,
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(top = 32.dp)
+        .padding(top = Medium)
         )
 
         Spacer(
             modifier = Modifier
-                .padding(top = 32.dp)
+                .padding(top = Medium)
         )
 
         Column(
             modifier = Modifier
-            .padding(start =  16.dp)
+            .padding(start =  XMedium)
         ) {
             Column {
                 Text(
@@ -68,14 +70,14 @@ fun FixedHeader(
                     style = MaterialTheme.typography.displayLarge
                 )
             }
-            Spacer(modifier = Modifier.height(16.dp))
+            Spacer(modifier = Modifier.height(XMedium))
             Row {
                 Text(
                     text = "Balance",
                     style = MaterialTheme.typography.displaySmall
                         .copy(color = MaterialTheme.colorScheme.onTertiary)
                 )
-                Spacer(modifier = Modifier.width(16.dp))
+                Spacer(modifier = Modifier.width(XMedium))
                 Text(
                     text = formatMoneyAmount(account.balance),
                     style = MaterialTheme.typography.displaySmall
@@ -87,48 +89,48 @@ fun FixedHeader(
                     style = MaterialTheme.typography.displaySmall
                         .copy(color = MaterialTheme.colorScheme.onTertiary)
                 )
-                Spacer(modifier = Modifier.width(16.dp))
+                Spacer(modifier = Modifier.width(XMedium))
                 Text(
                     formatMoneyAmount(pendingSum.toString()),
                     style = MaterialTheme.typography.displaySmall
                 )
             }
 
-            Spacer(modifier = Modifier.height(32.dp))
+            Spacer(modifier = Modifier.height(Medium))
         }
 
         Divider(color =  MaterialTheme.colorScheme.onTertiary,
-            thickness = 1.dp)
-        Spacer(modifier = Modifier.height(16.dp))
+            thickness = OnePoint)
+        Spacer(modifier = Modifier.height(XMedium))
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(start = 16.dp)
+                .padding(start = XMedium)
         ) {
             Text(
                 text = "BSB",
                 style = MaterialTheme.typography.titleMedium
             )
-            Spacer(modifier = Modifier.width(8.dp))
+            Spacer(modifier = Modifier.width(Small))
             Text( text = account.bsb,
                 style = MaterialTheme.typography.titleMedium
                     .copy(color = MaterialTheme.colorScheme.onTertiary)
             )
-            Spacer(modifier = Modifier.width(16.dp))
+            Spacer(modifier = Modifier.width(XMedium))
             Text(
                 text = "Account",
                 style = MaterialTheme.typography.titleMedium
             )
-            Spacer(modifier = Modifier.width(8.dp))
+            Spacer(modifier = Modifier.width(Small))
             Text(
                 text = splitStringIntoGroups(account.accountNumber),
                 style = MaterialTheme.typography.titleMedium
                     .copy(color = MaterialTheme.colorScheme.onTertiary)
             )
         }
-        Spacer(modifier = Modifier.height(16.dp))
+        Spacer(modifier = Modifier.height(XMedium))
         Divider(color =  MaterialTheme.colorScheme.onTertiary,
-            thickness = 1.dp)
-    }
+            thickness = OnePoint)
+}
 }
 
