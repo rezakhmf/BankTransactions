@@ -4,7 +4,7 @@ I am Reza Farahani,
 
 # Project Title
 
-Bank Transactions demo
+Bank Transactions demo inspired by Common Wealth Bank Australia
 
 [bank-transactions-final.webm](https://github.com/rezakhmf/BankTransactions/assets/3985692/7c228a74-6fcd-4991-898f-ffd1b315e657)
 
